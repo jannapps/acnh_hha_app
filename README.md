@@ -1,6 +1,6 @@
 # acnh_hha_app
 
-see: https://girljaro.systems:4444/index.php/2021/11/29/animal-crossing-hha-score-calculator-1/
+see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 
 ## To Do
 * create css for search filter box
