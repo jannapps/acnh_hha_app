@@ -4,6 +4,10 @@ require 'pg'
 set :port, 8080
 
 get '/' do
+  redirect '/index.html'
+end
+
+get '/search' do
   data = []
 
   begin
