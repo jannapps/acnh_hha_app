@@ -15,3 +15,4 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 ## Ideas
 * populate the select boxes for search terms with erb db query that finds all possible colors/concepts/sets/categories/sizes? 
   * this would make the runtime for each operation much longer, maybe just do this every now and then?
+  * how to make two yield statements on a single view respectively yield to the correct 'erb' calls?
