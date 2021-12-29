@@ -9,4 +9,4 @@
 
 ## Ideas
 * populate the select boxes for search terms with erb db query that finds all possible colors/concepts/sets/categories/sizes? 
-** this would make the runtime for each operation much longer, maybe just do this every now and then?
+  * this would make the runtime for each operation much longer, maybe just do this every now and then?
