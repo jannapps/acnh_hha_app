@@ -35,6 +35,95 @@
       </ul>
     </nav>
     
+    <div class="info">
+      <form class="search-filters">
+        <table class="search-terms">
+          <tr>
+            <td>Name: <input type="text" class="input-name" /></td>
+            <td>Concept:
+              <select id="concept1" name="Concept 1" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+              <select id="concept1" name="Concept 2" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Kind:
+              <select id="kind" name="Kind" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+            </td>
+            <td>Series:
+              <select id="series" name="Series" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Size:
+              <select id="size" name="Size" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+            </td>
+            <td>Set:
+              <select id="set" name="Set" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Surface:
+              <select id="surface" name="Surface?" size="1">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </td>
+            <td>Category:
+              <select id="category" name="Category" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Color:
+              <select id="color1" name="Color 1" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+              <select id="color2" name="Color 2" size="1">
+                <option value="val1">Value 1</option>
+                <option value="val2">Value 2</option>
+                <option value="val3">value 3</option>
+              </select>
+            </td>
+            <td>Points:
+              <select id="set" name="Set" size="1">
+                <option value="lohi">Lo-to-Hi</option>
+                <option value="hilo">Hi-to-Lo</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
     <%= yield %>
 
     <div class="bottombar">
