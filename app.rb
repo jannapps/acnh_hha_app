@@ -26,5 +26,5 @@ get '/search' do
 
   end
 
-  erb :item, :layout => :main, :locals => {:data => table}
+  erb :item, :layout => :search, :locals => {:data => table}
 end
