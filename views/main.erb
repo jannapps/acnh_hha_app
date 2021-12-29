@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang=en>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+    <meta charset=utf-8>
+    <title>ACNH HHA Score Calculator</title>
+  </head>
+
+  <body>
+  
+    <nav class="topbar">
+      <div class="logo"><a href="/">HHA Score Calculator</a></div>
+
+      <ul class="nav-links">
+        <div class="menu">
+          
+          <li><a href="/search">Search</a></li>
+          
+          <li class="myhouse-dropdown">
+            <a href="/myhouse">My House</a>
+            <ul class="dropdown">
+              <li><a href="/myhouse/mainroom">Main Room</a></li>
+              <li><a href="/myhouse/leftroom">Left Room</a></li>
+              <li><a href="/myhouse/rightroom">Right Room</a></li>
+              <li><a href="/myhouse/backroom">Back Room</a></li>
+              <li><a href="/myhouse/topfloor">Top Floor</a></li>
+              <li><a href="/myhouse/basement">Basement</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/profile">[ICO]</a></li>
+
+        </div>
+      </ul>
+    </nav>
+
+    <div class="bottombar">
+      <h3>&copy; jannapps</h3>
+    </div>
+    
+    <%= yield %>
+
+  </body>
+</html>

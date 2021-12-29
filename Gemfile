@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+gem 'rerun',    '0.13.1'
+gem 'rake',     '13.0.6'
+gem 'sinatra',  '2.1.0'
+gem 'thin',     '1.8.1'
+gem 'pg',       '1.2.3'
