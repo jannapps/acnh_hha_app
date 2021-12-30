@@ -71,6 +71,18 @@
     background-color: rgb(245, 247, 249);
 }
 
+.search-terms {
+    width:              90%;
+/*    border:             1px solid black;*/
+    margin:             auto;
+
+    margin-bottom:      15px;
+}
+
+.search-terms tr td {
+    width:              50%;
+/*    border:             1px solid black;*/
+}
 
 div.item {
     margin:             auto;
@@ -93,3 +105,7 @@ div.info {
     line-height:        15px;
     width:              75%;
 }
+
+/*div.info h3 {
+    margin-left:        15px;
+}*/
