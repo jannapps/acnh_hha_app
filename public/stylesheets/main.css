@@ -103,6 +103,16 @@
     width:              30%;
 }
 
+button.search-button {
+    display:            grid;
+    margin:             auto;
+    width:              80%;
+}
+
+/*button.search-button:hover {
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.24), 0 7px 10px 0 rgba(0,0,0,0.19);
+}*/
+
 /* END SEARCH FILTERS */
 
 

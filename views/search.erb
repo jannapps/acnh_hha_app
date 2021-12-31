@@ -39,7 +39,7 @@
     
     <div class="info">
       <h3>Search Filters</h3>
-      <form class="search-filters" method="POST" action="/search">
+      <form class="search-filters" id="search-filters" method="GET" action="/search">
         <table class="search-terms">
           <tr>
             <td><input type="checkbox" id="name-toggle" name="name-toggle" /></td>
@@ -143,6 +143,8 @@
             </td>
           </tr>
         </table>
+        <button class="search-button" type="submit" form="search-filters" name="do-search" id="do-search">Search!</button>
+
       </form>
     </div>
 
