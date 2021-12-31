@@ -12,7 +12,7 @@ get '/search' do
 
   begin
     connection = PG.connect :dbname => 'acnh_hha_app', :user => 'janna'
-    table = nil 
+    table = "empty" # initial state for this variable to correctly format search page
     
     #connection.exec 'SELECT * FROM housewares;'
 
@@ -22,6 +22,8 @@ get '/search' do
 
   rescue PG::Error => e
     e_value = e.message
+    table = "error" # error state for this variable to display DB error to user and not throw exception
+    erb :item, :layout => :search, :locals => {:data => table}
 
   ensure
     connection.close if connection
