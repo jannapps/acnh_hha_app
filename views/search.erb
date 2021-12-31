@@ -42,17 +42,19 @@
       <form class="search-filters" id="search-filters" method="GET" action="/search">
         <table class="search-terms">
           <tr>
-            <td><input type="checkbox" id="name-toggle" name="name-toggle" /></td>
+            <td><input type="checkbox" id="t_name" name="t_name" /></td>
             <td>Name:</td><td><input type="text" class="input-name" /></td>
-            <td><input type="checkbox" id="concept-toggle" name="concept-toggle" /></td>
+            <td><input type="checkbox" id="t_concept" name="t_concept" /></td>
             <td>Concept:</td>
             <td>
-              <select id="concept1" name="Concept 1" size="1">
+              <select id="concept1" name="concept1" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
               </select>
-              <select id="concept1" name="Concept 2" size="1">
+              <select id="concept1" name="concept2" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
@@ -60,19 +62,21 @@
             </td>
           </tr>
           <tr>
-            <td><input type="checkbox" id="kind-toggle" name="kind-toggle" /></td>
+            <td><input type="checkbox" id="t_kind" name="t_kind" /></td>
             <td>Kind:</td>
             <td>
-              <select id="kind" name="Kind" size="1">
+              <select id="kind" name="kind" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
               </select>
             </td>
-            <td><input type="checkbox" id="series-toggle" name="series-toggle" /></td>
+            <td><input type="checkbox" id="t_series" name="t_series" /></td>
             <td>Series:</td>
             <td>
-              <select id="series" name="Series" size="1">
+              <select id="series" name="series" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
@@ -80,19 +84,21 @@
             </td>
           </tr>
           <tr>
-            <td><input type="checkbox" id="size-toggle" name="size-toggle" /></td>
+            <td><input type="checkbox" id="t_size" name="t_size" /></td>
             <td>Size:</td>
             <td>
-              <select id="size" name="Size" size="1">
+              <select id="size" name="size" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
               </select>
             </td>
-            <td><input type="checkbox" id="set-toggle" name="set-toggle" /></td>
+            <td><input type="checkbox" id="t_set" name="t_set" /></td>
             <td>Set:</td>
             <td>
-              <select id="set" name="Set" size="1">
+              <select id="set" name="set" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
@@ -100,18 +106,20 @@
             </td>
           </tr>
           <tr>
-            <td><input type="checkbox" id="surface-toggle" name="surface-toggle" /></td>
+            <td><input type="checkbox" id="t_surface" name="t_surface" /></td>
             <td>Surface:</td>
             <td>
-              <select id="surface" name="Surface" size="1">
+              <select id="surface" name="surface" size="1">
+                <option value="" selected></option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
             </td>
-            <td><input type="checkbox" id="category-toggle" name="category-toggle" /></td>
+            <td><input type="checkbox" id="t_category" name="t_category" /></td>
             <td>Category:</td>
             <td>
-              <select id="category" name="Category" size="1">
+              <select id="category" name="category" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
@@ -119,24 +127,27 @@
             </td>
           </tr>
           <tr>
-            <td><input type="checkbox" id="color-toggle" name="color-toggle" /></td>
+            <td><input type="checkbox" id="t_color" name="t_color" /></td>
             <td>Color:</td>
             <td>
-              <select id="color1" name="Color 1" size="1">
+              <select id="color1" name="color1" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
               </select>
-              <select id="color2" name="Color 2" size="1">
+              <select id="color2" name="color2" size="1">
+                <option value="" selected></option>
                 <option value="val1">Value 1</option>
                 <option value="val2">Value 2</option>
                 <option value="val3">value 3</option>
               </select>
             </td>
-            <td><input type="checkbox" id="points-toggle" name="points-toggle" /></td>
+            <td><input type="checkbox" id="t_points" name="t_points" /></td>
             <td>Points:</td>
             <td>
-              <select id="sort-points" name="Sort Points" size="1">
+              <select id="sort-points" name="sort-points" size="1">
+                <option value="" selected></option>
                 <option value="lohi">Lo-to-Hi</option>
                 <option value="hilo">Hi-to-Lo</option>
               </select>
