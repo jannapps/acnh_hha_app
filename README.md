@@ -4,6 +4,11 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 
 ## To Do
 * write code for doing the db query with the received fields
+* make search page not provide any data unless a query is entered
+* display query results to user correctly
+* update item result entries with more information
+  * also update the css to make the information appear pretty
+  * need to decide how to display items with multiple variations, and if items without multiple variations should appear the same way or not
 * create option for each item displayed in search results to add it to the list of user furniture
   * might need ajax for this? :(
   * the user's list could be stored as a cookie and updated when the list is changed, but that could result in a very large cookie, and also would mean that logged users might not have their lists saved
