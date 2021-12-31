@@ -80,16 +80,27 @@
 /* SEARCH FILTERS */
 
 .search-terms {
-    width:              90%;
-    border:             1px solid black;
+    width:              auto;
+/*    border:             1px solid black;*/
     margin:             auto;
     margin-bottom:      15px;
+    margin-left:        3%;
+    margin-right:       3%;
 }
 
-.search-terms tr, .search-terms td {
-/*    width:              auto;*/
+/*.search-terms tr, .search-terms td {
+    width:              auto;
     margin:             auto;
     border:             1px solid black;
+}*/
+
+.search-terms td:nth-child(1), .search-terms td:nth-child(2), .search-terms td:nth-child(4), .search-terms td:nth-child(5) {
+    width:              0.1%;
+    white-space:        nowrap;
+}
+
+.search-terms td:nth-child(3), .search-terms td:nth-child(6) {
+    width:              30%;
 }
 
 /* END SEARCH FILTERS */
