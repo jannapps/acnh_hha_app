@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  
+    <!-- navigation bar -->
     <nav class="topbar">
         <div class="logo"><a href="/">HHA Score Calculator</a></div>
 
@@ -37,14 +37,17 @@
         </ul>
     </nav>
     
+    <!-- search filter box -->
     <div class="info">
         <h3>Search Filters</h3>
         <form class="search-filters" id="search-filters" method="GET" action="/search">
             <table class="search-terms">
                 <tr>
+                    <!-- name -->
                     <td><input type="checkbox" id="t_name" name="t_name" /></td>
                     <td>Name:</td><td><input type="text" id="name" name="name" class="input-name" /></td>
                     
+                    <!-- hha_concept -->
                     <td><input type="checkbox" id="t_hha_concept" name="t_hha_concept" /></td>
                     <td>Concept:</td>
                     <td>
@@ -64,6 +67,7 @@
                 </tr>
 
                 <tr>
+                    <!-- kind -->
                     <td><input type="checkbox" id="t_kind" name="t_kind" /></td>
                     <td>Kind:</td>
                     <td>
@@ -75,6 +79,7 @@
                         </select>
                     </td>
 
+                    <!-- hha_series -->
                     <td><input type="checkbox" id="t_hha_series" name="t_hha_series" /></td>
                     <td>Series:</td>
                     <td>
@@ -88,6 +93,7 @@
                 </tr>
                 
                 <tr>
+                    <!-- size -->
                     <td><input type="checkbox" id="t_size" name="t_size" /></td>
                     <td>Size:</td>
                     <td>
@@ -99,6 +105,7 @@
                         </select>
                     </td>
 
+                    <!-- hha_set -->
                     <td><input type="checkbox" id="t_hha_set" name="t_hha_set" /></td>
                     <td>Set:</td>
                     <td>
@@ -112,6 +119,7 @@
                 </tr>
                 
                 <tr>
+                    <!-- surface -->
                     <td><input type="checkbox" id="t_surface" name="t_surface" /></td>
                     <td>Surface:</td>
                     <td>
@@ -122,6 +130,7 @@
                         </select>
                     </td>
 
+                    <!-- hha_category -->
                     <td><input type="checkbox" id="t_hha_category" name="t_hha_category" /></td>
                     <td>Category:</td>
                     <td>
@@ -135,6 +144,7 @@
                 </tr>
 
                 <tr>
+                    <!-- color -->
                     <td><input type="checkbox" id="t_color" name="t_color" /></td>
                     <td>Color:</td>
                     <td>
@@ -152,10 +162,11 @@
                         </select>
                     </td>
 
+                    <!-- sort_points -->
                     <td><input type="checkbox" id="t_points" name="t_points" /></td>
                     <td>Points:</td>
                     <td>
-                        <select id="sort-points" name="sort-points" size="1">
+                        <select id="sort_points" name="sort_points" size="1">
                         <option value="" selected></option>
                         <option value="lohi">Lo-to-Hi</option>
                         <option value="hilo">Hi-to-Lo</option>
@@ -164,15 +175,17 @@
                 </tr>
             </table>
 
+            <!-- form submission button -->
             <button class="search-button" type="submit" form="search-filters" name="do-search" id="do-search">Search!</button>
         </form>
     </div>
 
+    <!-- display search results -->
     <%= yield :item %>
 
     <div class="bottombar">
-      <h3>&copy; jannapps</h3>
+        <h3>&copy; jannapps</h3>
     </div>
 
-  </body>
+</body>
 </html>
