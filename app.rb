@@ -4,31 +4,30 @@ require 'pg'
 set :port, 8080
 
 get '/' do
-  redirect '/index.html'
+    redirect '/index.html'
 end
 
 get '/search' do
-  data = []
+    data = []
 
-  begin
-    connection = PG.connect :dbname => 'acnh_hha_app', :user => 'janna'
-    table = "empty" # initial state for this variable to correctly format search page
-    
-    #connection.exec 'SELECT * FROM housewares;'
+    begin
+        connection = PG.connect :dbname => 'acnh_hha_app', :user => 'janna'
+        table = "empty" # initial state for this variable to correctly format search page
+        
+#        table = connection.exec 'SELECT * FROM housewares;'
+#        table.each do |item|
+#            data.push({ name: item['name'], points: item['hha_base'] })
+#        end
 
-#    table.each do |item|
-#      data.push({ name: item['name'], points: item['hha_base'] })
-#    end
+    rescue PG::Error => e
+        e_value = e.message
+        table = "error" # error state for this variable to display DB error to user and not throw exception
+        erb :item, :layout => :search, :locals => {:data => table}
 
-  rescue PG::Error => e
-    e_value = e.message
-    table = "error" # error state for this variable to display DB error to user and not throw exception
+    ensure
+        connection.close if connection
+
+    end
+
     erb :item, :layout => :search, :locals => {:data => table}
-
-  ensure
-    connection.close if connection
-
-  end
-
-  erb :item, :layout => :search, :locals => {:data => table}
 end

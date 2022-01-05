@@ -1,17 +1,17 @@
 <% if data == nil %>
-  <div class="info">
-    <h3>No search results! Try some different terms.</h3>
-  </div>
+    <div class="info">
+        <h3>No search results! Try some different terms.</h3>
+    </div>
 <% elsif data == "error" %>
-  <div class="info">
-    <h3>Oops!</h3>
-    <p>Our database is down. Please check again later! &hearts;</p>
-  </div>
+    <div class="info">
+        <h3>Oops!</h3>
+        <p>Our database is down. Please check again later! &hearts;</p>
+    </div>
 <% elsif data == "empty" %>
 <% else %>
-  <% data.each do |item| %>
-    <div class="item">
-      <p><%= item['name'] %> &emsp; (<%= item['hha_base'] %> points)</p>
-    </div>
-  <% end %>
+    <% data.each do |item| %>
+        <div class="item">
+            <p><%= item['name'] %> &emsp; (<%= item['hha_base'] %> points)</p>
+        </div>
+    <% end %>
 <% end %>

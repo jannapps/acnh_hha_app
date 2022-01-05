@@ -1,165 +1,174 @@
 <!doctype html>
 <html lang=en>
-  <head>
+<head>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
     <meta charhha_set=utf-8>
     <title>ACNH HHA Score Calculator</title>
-  </head>
+</head>
 
-  <body>
+<body>
   
     <nav class="topbar">
-      <div class="logo"><a href="/">HHA Score Calculator</a></div>
+        <div class="logo"><a href="/">HHA Score Calculator</a></div>
 
-      <ul class="nav-links">
-        <div class="menu">
+        <ul class="nav-links">
+            <div class="menu">
           
-          <li><a href="/">Home</a></li>
+                <li><a href="/">Home</a></li>
 
-          <li><a href="/search">Search</a></li>
-          
-          <li class="myhouse-dropdown">
-            <a href="/myhouse">My House</a>
-            <ul class="dropdown">
-              <li><a href="/myhouse/mainroom">Main Room</a></li>
-              <li><a href="/myhouse/leftroom">Left Room</a></li>
-              <li><a href="/myhouse/rightroom">Right Room</a></li>
-              <li><a href="/myhouse/backroom">Back Room</a></li>
-              <li><a href="/myhouse/topfloor">Top Floor</a></li>
-              <li><a href="/myhouse/basement">Basement</a></li>
-            </ul>
-          </li>
+                <li><a href="/search">Search</a></li>
+                
+                <li class="myhouse-dropdown">
+                    <a href="/myhouse">My House</a>
+                    <ul class="dropdown">
+                        <li><a href="/myhouse/mainroom">Main Room</a></li>
+                        <li><a href="/myhouse/leftroom">Left Room</a></li>
+                        <li><a href="/myhouse/rightroom">Right Room</a></li>
+                        <li><a href="/myhouse/backroom">Back Room</a></li>
+                        <li><a href="/myhouse/topfloor">Top Floor</a></li>
+                        <li><a href="/myhouse/basement">Basement</a></li>
+                    </ul>
+                </li>
 
-          <li><a href="/profile">[ICO]</a></li>
+                <li><a href="/profile">[ICO]</a></li>
 
-        </div>
-      </ul>
+            </div>
+        </ul>
     </nav>
     
     <div class="info">
-      <h3>Search Filters</h3>
-      <form class="search-filters" id="search-filters" method="GET" action="/search">
-        <table class="search-terms">
-          <tr>
-            <td><input type="checkbox" id="t_name" name="t_name" /></td>
-            <td>Name:</td><td><input type="text" id="name" name="name" class="input-name" /></td>
-            <td><input type="checkbox" id="t_hha_concept" name="t_hha_concept" /></td>
-            <td>Concept:</td>
-            <td>
-              <select id="hha_concept1" name="hha_concept1" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-              <select id="hha_concept1" name="hha_concept2" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" id="t_kind" name="t_kind" /></td>
-            <td>Kind:</td>
-            <td>
-              <select id="kind" name="kind" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-            </td>
-            <td><input type="checkbox" id="t_hha_series" name="t_hha_series" /></td>
-            <td>Series:</td>
-            <td>
-              <select id="hha_series" name="hha_series" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" id="t_size" name="t_size" /></td>
-            <td>Size:</td>
-            <td>
-              <select id="size" name="size" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-            </td>
-            <td><input type="checkbox" id="t_hha_set" name="t_hha_set" /></td>
-            <td>Set:</td>
-            <td>
-              <select id="hha_set" name="hha_set" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" id="t_surface" name="t_surface" /></td>
-            <td>Surface:</td>
-            <td>
-              <select id="surface" name="surface" size="1">
-                <option value="" selected></option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </td>
-            <td><input type="checkbox" id="t_hha_category" name="t_hha_category" /></td>
-            <td>Category:</td>
-            <td>
-              <select id="hha_category" name="hha_category" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" id="t_color" name="t_color" /></td>
-            <td>Color:</td>
-            <td>
-              <select id="color1" name="color1" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-              <select id="color2" name="color2" size="1">
-                <option value="" selected></option>
-                <option value="val1">Value 1</option>
-                <option value="val2">Value 2</option>
-                <option value="val3">value 3</option>
-              </select>
-            </td>
-            <td><input type="checkbox" id="t_points" name="t_points" /></td>
-            <td>Points:</td>
-            <td>
-              <select id="sort-points" name="sort-points" size="1">
-                <option value="" selected></option>
-                <option value="lohi">Lo-to-Hi</option>
-                <option value="hilo">Hi-to-Lo</option>
-              </select>
-            </td>
-          </tr>
-        </table>
-        <button class="search-button" type="submit" form="search-filters" name="do-search" id="do-search">Search!</button>
+        <h3>Search Filters</h3>
+        <form class="search-filters" id="search-filters" method="GET" action="/search">
+            <table class="search-terms">
+                <tr>
+                    <td><input type="checkbox" id="t_name" name="t_name" /></td>
+                    <td>Name:</td><td><input type="text" id="name" name="name" class="input-name" /></td>
+                    
+                    <td><input type="checkbox" id="t_hha_concept" name="t_hha_concept" /></td>
+                    <td>Concept:</td>
+                    <td>
+                        <select id="hha_concept1" name="hha_concept1" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                        <select id="hha_concept1" name="hha_concept2" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                    </td>
+                </tr>
 
-      </form>
+                <tr>
+                    <td><input type="checkbox" id="t_kind" name="t_kind" /></td>
+                    <td>Kind:</td>
+                    <td>
+                        <select id="kind" name="kind" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                    </td>
+
+                    <td><input type="checkbox" id="t_hha_series" name="t_hha_series" /></td>
+                    <td>Series:</td>
+                    <td>
+                        <select id="hha_series" name="hha_series" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><input type="checkbox" id="t_size" name="t_size" /></td>
+                    <td>Size:</td>
+                    <td>
+                        <select id="size" name="size" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                    </td>
+
+                    <td><input type="checkbox" id="t_hha_set" name="t_hha_set" /></td>
+                    <td>Set:</td>
+                    <td>
+                        <select id="hha_set" name="hha_set" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><input type="checkbox" id="t_surface" name="t_surface" /></td>
+                    <td>Surface:</td>
+                    <td>
+                        <select id="surface" name="surface" size="1">
+                            <option value="" selected></option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </td>
+
+                    <td><input type="checkbox" id="t_hha_category" name="t_hha_category" /></td>
+                    <td>Category:</td>
+                    <td>
+                        <select id="hha_category" name="hha_category" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" id="t_color" name="t_color" /></td>
+                    <td>Color:</td>
+                    <td>
+                        <select id="color1" name="color1" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                        <select id="color2" name="color2" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                    </td>
+
+                    <td><input type="checkbox" id="t_points" name="t_points" /></td>
+                    <td>Points:</td>
+                    <td>
+                        <select id="sort-points" name="sort-points" size="1">
+                        <option value="" selected></option>
+                        <option value="lohi">Lo-to-Hi</option>
+                        <option value="hilo">Hi-to-Lo</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <button class="search-button" type="submit" form="search-filters" name="do-search" id="do-search">Search!</button>
+        </form>
     </div>
 
-    <%= yield %>
+    <%= yield :item %>
 
     <div class="bottombar">
       <h3>&copy; jannapps</h3>
