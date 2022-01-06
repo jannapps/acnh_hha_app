@@ -44,25 +44,7 @@ get '/' do
 end
 
 get '/search' do
-    data = []
-
-    begin
-        connection = PG.connect :dbname => 'acnh_hha_app', :user => 'janna'
-        data = "empty" # initial state for this variable to correctly format search page
-        
-#        table = connection.exec 'SELECT * FROM housewares;'
-#        table.each do |item|
-#            data.push({ name: item['name'], points: item['hha_base'] })
-#        end
-
-    rescue PG::Error => e
-        e_value = e.message
-        data = "error" # error state for this variable to display DB error to user and not throw exception
-        erb :item, :layout => :search, :locals => {:data => data}
-    ensure
-        connection.close if connection
-    end
-
+    data = "initial_state"
     erb :item, :layout => :search, :locals => {:data => data}
 end
 
@@ -85,8 +67,6 @@ post '/search' do
 
         validate_param 'name'
         validate_param 'hha_concept'
-        #validate_param 'concept1'
-        #validate_param 'concept2'
         validate_param 'kind'
         validate_param 'hha_series'
         validate_param 'size'
@@ -94,8 +74,6 @@ post '/search' do
         validate_param 'surface'
         validate_param 'hha_category'
         validate_param 'color'
-        #validate_param 'color1'
-        #validate_param 'color2'
         validate_param 'sort_points'
 
         # 'any' is a misnomer, t_kind is treated differently because of its unique effect on search_string
