@@ -1,6 +1,11 @@
 <% if data == nil %>
     <div class="info">
         <h3>No search results! Try some different terms.</h3>
+        <p>Less restrictive terms will often yield more results.</p>
+    </div>
+<% elsif data == "no_selection" %>
+    <div class="info">
+        <h3>Nothing was selected! Try some search terms.</h3>
     </div>
 <% elsif data == "error" %>
     <div class="info">
@@ -9,9 +14,16 @@
     </div>
 <% elsif data == "empty" %>
 <% else %>
-    <% data.each do |item| %>
-        <div class="item">
-            <p><%= item['name'] %> &emsp; (<%= item['hha_base'] %> points)</p>
+    <% if data.length() == 0 %>
+        <div class="info">
+            <h3>No search results! Try some different terms.</h3>
+            <p>Less restrictive terms will often yield more results.</p>
         </div>
+    <% else %>
+        <% data.each do |item| %>
+            <div class="item">
+                <p><%= item['name'] %> &emsp; (<%= item['hha_base'] %> points)</p>
+            </div>
+        <% end %>
     <% end %>
 <% end %>

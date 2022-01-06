@@ -3,8 +3,7 @@
 see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 
 ## To Do
-* write code for doing the db query with the received fields
-* make search page not provide any data unless a query is entered
+* finish code for doing the db query with the received fields
 * display query results to user correctly
 * update item result entries with more information
     * also update the css to make the information appear pretty
@@ -14,7 +13,9 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
     * the user's list could be stored as a cookie and updated when the list is changed, but that could result in a very large cookie, and also would mean that logged users might not have their lists saved
     * is there a way to write to a database upon action from a user that doesn't involve js?
 * do input validation for the one text box
+    * this could be difficult, considering many item names contain the '-' character
 * create bones for the myhouse page, prototype can just be displaying the list of activated items from search results
+* automatically tick the box for any filter that's being adjusted with js
 
 ## Ideas
 * populate the select boxes for search terms with erb db query that finds all possible colors/concepts/sets/categories/sizes? 
@@ -22,3 +23,5 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
     * how to make two yield statements on a single view respectively yield to the correct 'erb' calls?
     * 'yield' is only necessary for calling a different view -- erb code in the html itself will be interpreted as expected
 * add an additional input field to 'color' and 'concept' that lets the user choose between 'and' and 'or' operations between color1 and color2 and concept1 and concept2 respectively
+* the 'sort_points' term is probably useless, why would anyone want lo-to-hi ordering?
+    * it would make more sense to be a bool, where false=alphabetical and true=numerical sort

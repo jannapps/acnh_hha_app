@@ -40,7 +40,7 @@
     <!-- search filter box -->
     <div class="info">
         <h3>Search Filters</h3>
-        <form class="search-filters" id="search-filters" method="GET" action="/search">
+        <form class="search-filters" id="search-filters" method="POST" action="/search">
             <table class="search-terms">
                 <tr>
                     <!-- name -->
@@ -163,7 +163,7 @@
                     </td>
 
                     <!-- sort_points -->
-                    <td><input type="checkbox" id="t_points" name="t_points" /></td>
+                    <td><input type="checkbox" id="t_sort_points" name="t_sort_points" /></td>
                     <td>Points:</td>
                     <td>
                         <select id="sort_points" name="sort_points" size="1">
