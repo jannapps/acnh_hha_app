@@ -46,3 +46,6 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 
 ## Notes
 * 'build_query' is a function name already in-use here: `Rack::Utils::build_query(query)`
+* doing a query for each table returned a postgres failure when that table didn't have the relevant column, e.g. searching by `surface` in the table `floors`, because the `surface` field isn't relevant in that case so there was no existing column
+    * there is no efficient way to check if a column exists in postgres, and it is also not efficient to do a try/catch for each query (assuming it will fail in those cases)
+    * this was resolved by creating those irrelevant columns in the tables affected by this issue, and just leaving their values NULL, now each table has columns equivalent to the `housewares` table
