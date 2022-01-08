@@ -144,9 +144,7 @@ post '/search' do
         # 'any' is a misnomer, t_kind is treated differently because of its unique effect on search_string
         any_selected = params['t_name'] || params['t_hha_concept'] || params['t_hha_series'] || params['t_size'] || params['t_hha_set'] || params['t_surface'] || params['t_hha_category'] || params['t_color'] || params['t_sort_points']
 
-        if !params['t_kind'] && !any_selected
-            data = "no_selection"
-        elsif any_selected
+        if params['t_kind'] || any_selected
             query = ""
             if params['t_kind']
                 query = construct_query params['kind']
@@ -171,6 +169,8 @@ post '/search' do
             total_results.each do |item|
                 data.push(item)
             end
+        else
+            data = "no_selection"
         end
 
         erb :item, :layout => :search, :locals => {:data => data}
