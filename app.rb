@@ -37,6 +37,76 @@ end
 
 
 
+# this function returns a string which can then be passed to postgresql, and is constructed from user search terms
+# it takes one parameter, the table name to select items from, and returns one query acting on that table
+# intended to be used in a loop, particularly when search terms have been specified but not the table name
+def construct_query (kind)
+    query = 'SELECT * FROM ' + kind + ' '
+
+    any_selected = params['t_name'] || params['t_hha_concept'] || params['t_hha_series'] || params['t_size'] || params['t_hha_set'] || params['t_surface'] || params['t_hha_category'] || params['t_color'] || params['t_sort_points']
+
+    if !any_selected
+        query.concat(';')
+        return query
+    else
+        query.concat('WHERE ')
+        if params['t_name'] && params['name'] != '' && params['name'] != nil
+            # need to do input validation for this condition
+            query.concat(compare("name"))
+        end
+
+        if params['t_hha_concept'] && ( params['hha_concept1'] != '' || params['hha_concept2'] != '' )
+            if params['hha_concept1'] != ''
+                query.concat(compare("hha_concept1"))
+            end
+
+            if params['hha_concept2'] != ''
+                query.concat(compare("hha_concept2"))
+            end
+        end
+        
+        if params['t_hha_series'] && params['hha_series'] != ''
+            query.concat(compare("hha_series"))
+        end
+        
+        if params['t_size'] && params['size'] != ''
+            query.concat(compare("size"))
+        end
+
+        if params['t_hha_set'] && params['hha_set'] != ''
+            query.concat(compare("hha_set"))
+        end
+
+        if params['t_surface'] && params['surface'] != ''
+            query.concat(compare("surface"))
+        end
+            
+        if params['t_hha_category'] && params['hha_category'] != ''
+            query.concat(compare("hha_category"))
+        end
+        
+        if params['t_color'] && ( params['color1'] != '' || params['color2'] != '' )
+            if params['color1'] != ''
+                query.concat(compare("color1"))
+            end
+
+            if params['color2'] != ''
+                query.concat(compare("color2"))
+            end
+        end
+
+        #if params['t_sort_points'] && params['sort_points'] != ''
+        #    # this condition isn't like the others, use psql 'ORDER BY'
+        #end
+
+        query.chomp!(' AND ')
+        query.concat(';')
+        return query
+    end
+end
+
+
+
 # begin server response instructions
 
 get '/' do
@@ -50,8 +120,7 @@ end
 
 post '/search' do
     data = []
-    results = []
-    search_string = 'SELECT * FROM '
+    total_results = []
 
     begin
         connection = PG.connect :dbname => 'acnh_hha_app', :user => 'janna'
@@ -82,75 +151,40 @@ post '/search' do
         if !params['t_kind'] && !any_selected
             data = "no_selection"
         elsif any_selected
+            query = ""
             if params['t_kind']
-                search_string.concat(params['kind'] + ' ')
+                #search_string.concat(params['kind'] + ' ')
+                query = construct_query params['kind']
+                query_results = connection.exec query
+                
+                query_results.each do |item|
+                    total_results.push(item)
+                end
             else
-                # need code for combining output from all tables to go here (logically, at least)
+                item_kinds = ['accessories', 'artwork', 'bags', 'bottoms', 'ceiling_decor', 'clothing_other', 'dress_up', 'fish', 'floors', 'fossils', 'gyroids', 'headwear', 'housewares', 'insects', 'interior_structures', 'miscellaneous', 'music', 'photos', 'posters', 'rugs', 'sea_creatures', 'shoes', 'socks', 'tools_goods', 'tops', 'umbrellas', 'wall_mounted', 'wallpaper']
+
+                item_kinds.each do |kind|
+                    query = construct_query kind
+                    query_results = connection.exec query
+
+                    query_results.each do |item| 
+                        total_results.push(item)
+                    end
+                end
             end
 
             # temporary default table value for when 'kind' is left unselected
-            search_string.concat('housewares' + ' ')
+            #search_string.concat('housewares' + ' ')
             # remove this later
 
-            search_string.concat('WHERE ')
-            if params['t_name'] && params['name'] != '' && params['name'] != nil
-                # need to do input validation for this condition
-                search_string.concat(compare("name"))
-            end
-
-            if params['t_hha_concept'] && ( params['hha_concept1'] != '' || params['hha_concept2'] != '' )
-                if params['hha_concept1'] != ''
-                    search_string.concat(compare("hha_concept1"))
-                end
-
-                if params['hha_concept2'] != ''
-                    search_string.concat(compare("hha_concept2"))
-                end
-            end
             
-            if params['t_hha_series'] && params['hha_series'] != ''
-                search_string.concat(compare("hha_series"))
-            end
-            
-            if params['t_size'] && params['size'] != ''
-                search_string.concat(compare("size"))
-            end
-
-            if params['t_hha_set'] && params['hha_set'] != ''
-                search_string.concat(compare("hha_set"))
-            end
-
-            if params['t_surface'] && params['surface'] != ''
-                search_string.concat(compare("surface"))
-            end
-                
-            if params['t_hha_category'] && params['hha_category'] != ''
-                search_string.concat(compare("hha_category"))
-            end
-            
-            if params['t_color'] && ( params['color1'] != '' || params['color2'] != '' )
-                if params['color1'] != ''
-                    search_string.concat(compare("color1"))
-                end
-
-                if params['color2'] != ''
-                    search_string.concat(compare("color2"))
-                end
-            end
-
-            if params['t_sort_points'] && params['sort_points'] != ''
-                # this condition isn't like the others, use psql 'ORDER BY'
-            end
-
-            search_string.chomp!(' AND ')
-            search_string.concat(';')
         
             # the following output appears in the rerun interactive session, useful for debugging
-            puts search_string
+            #puts search_string
 
-            results = connection.exec search_string
+            #results = connection.exec search_string
 
-            results.each do |item|
+            total_results.each do |item|
                 data.push(item)
             end
         end
