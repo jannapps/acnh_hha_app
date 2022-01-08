@@ -95,10 +95,6 @@ def construct_query (kind)
             end
         end
 
-        #if params['t_sort_points'] && params['sort_points'] != ''
-        #    # this condition isn't like the others, use psql 'ORDER BY'
-        #end
-
         query.chomp!(' AND ')
         query.concat(';')
         return query
@@ -153,7 +149,6 @@ post '/search' do
         elsif any_selected
             query = ""
             if params['t_kind']
-                #search_string.concat(params['kind'] + ' ')
                 query = construct_query params['kind']
                 query_results = connection.exec query
                 
@@ -172,17 +167,6 @@ post '/search' do
                     end
                 end
             end
-
-            # temporary default table value for when 'kind' is left unselected
-            #search_string.concat('housewares' + ' ')
-            # remove this later
-
-            
-        
-            # the following output appears in the rerun interactive session, useful for debugging
-            #puts search_string
-
-            #results = connection.exec search_string
 
             total_results.each do |item|
                 data.push(item)
