@@ -30,11 +30,11 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 * populate the select boxes for search terms with erb db query that finds all possible colors/concepts/sets/categories/sizes? 
     * this would make the runtime for each operation much longer, maybe just do this every now and then?
         * look into timing-based server-side commands for sinatra, maybe just use cron
-    * how to make two yield statements on a single view respectively yield to the correct 'erb' calls?
-    * 'yield' is only necessary for calling a different view -- erb code in the html itself will be interpreted as expected
-        * remember that sinatra only allows rendering one view per erb call
-* add an additional input field to 'color' and 'concept' that lets the user choose between 'and' and 'or' operations between color1 and color2 and concept1 and concept2 respectively
-* the 'sort_points' term is probably useless, why would anyone want lo-to-hi ordering?
+    * how to make two yield statements on a single view respectively yield to the correct `erb` calls?
+    * `yield` is only necessary for calling a different view -- erb code in the html itself will be interpreted as expected
+        * sinatra only allows rendering one view per erb call! this means `yield` can only be called once in a controller
+* add an additional input field to `color` and `concept` that lets the user choose between 'and' and 'or' operations between color1 and color2 and concept1 and concept2 respectively
+* `sort_points` is probably useless, why would anyone want lo-to-hi ordering?
     * it would make more sense to be a bool, where false=alphabetical and true=numerical sort
 
 ## Notes
