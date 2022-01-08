@@ -3,7 +3,10 @@
 see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 
 ## To Do
-* finish code for doing the db query with the received fields
+* implementing sorting results by point values
+    * postgres already has a sort-by option for queries, so it would make sense to use that, but if `kind` isn't specified, then queries across many tables need to be performed, which would make the results not be sorted correctly
+    * using sort-by in that case would definitely improve the runtime of quicksort or bubble sort or whatever somewhat, but it's not ideal
+        * we'd also need to figure out how to do a sort on an array which contains hashes by a particular value within those hashes, which, would Suck
 * update item result css to make the all fields visible to the user
     * need to decide how to display items with multiple variations, and if items without multiple variations should appear the same way or not
     * see the mockup on goodnotes for more info
@@ -36,6 +39,7 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 * add an additional input field to `color` and `concept` that lets the user choose between 'and' and 'or' operations between color1 and color2 and concept1 and concept2 respectively
 * `sort_points` is probably useless, why would anyone want lo-to-hi ordering?
     * it would make more sense to be a bool, where false=alphabetical and true=numerical sort
+    * this means it could also just be a checkbox, maybe it shouldn't go in the main search filter body with everything else?
 
 ## Notes
 * 'build_query' is a function name already in-use here: `Rack::Utils::build_query(query)`
