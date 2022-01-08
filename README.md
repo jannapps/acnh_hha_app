@@ -13,7 +13,10 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 * create option for each item displayed in search results to add it to the list of user furniture (or to a room of their house)
     * might need ajax for this? :(
     * the user's list could be stored as a cookie and updated when the list is changed, but that could result in a very large cookie, and also would mean that logged users might not have their lists saved
+        * guest users have their house data stored in a cookie, logged-in users have it stored in a server-side postgres database
+        * need to implement account creation, login, secure password storage, sessions, etc.
     * is there a way to write to a database upon action from a user that doesn't involve js?
+        * refreshing the page would accomplish this but it would absolutely suck for the user if it worked this way, so js it is
 * do input validation for the one text box
     * this could be difficult, considering many item names contain the '-' character
 * create bones for the myhouse page, prototype can just be displaying the list of activated items from search results
