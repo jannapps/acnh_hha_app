@@ -36,3 +36,6 @@ see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 * add an additional input field to 'color' and 'concept' that lets the user choose between 'and' and 'or' operations between color1 and color2 and concept1 and concept2 respectively
 * the 'sort_points' term is probably useless, why would anyone want lo-to-hi ordering?
     * it would make more sense to be a bool, where false=alphabetical and true=numerical sort
+
+## Notes
+* 'build_query' is a function name already in-use here: `Rack::Utils::build_query(query)`
