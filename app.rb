@@ -109,7 +109,19 @@ end
 
 get '/search' do
     data = "initial_state"
-    erb :item, :layout => :search, :locals => {:data => data}
+
+    begin
+        connection = PG.connect :dbname => 'acnh_hha_app', :user => 'janna'
+        erb :item, :layout => :search, :locals => {:data => data}
+
+    rescue PG::Error => e
+        data = "error"
+        erb :item, :layout => :search, :locals => {:data => data}
+
+    ensure
+        connection.close if connection
+
+    end
 end
 
 post '/search' do
@@ -138,7 +150,6 @@ post '/search' do
                     total_results.push(item)
                 end
             else
-
                 item_kinds.each do |kind|
                     query = construct_query kind
                     query_results = connection.exec query
@@ -157,5 +168,13 @@ post '/search' do
         end
 
         erb :item, :layout => :search, :locals => {:data => data}
+    
+    rescue PG::Error => e
+        data = "error"
+        erb :item, :layout => :search, :locals => {:data => data}
+
+    ensure
+        connection.close if connection
+
     end
 end
