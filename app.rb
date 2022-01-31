@@ -80,6 +80,7 @@ def construct_query (kind)
             query.concat(compare("hha_set"))
         end
         if params['t_surface'] && params['surface'] != ''
+            params['surface'] = "Yes"
             query.concat(compare("surface"))
         end 
         if params['t_hha_category'] && params['hha_category'] != ''

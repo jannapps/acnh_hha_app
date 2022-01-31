@@ -93,11 +93,17 @@
                 </tr>
                 
                 <tr>
-                    <!-- size -->
-                    <td><input type="checkbox" id="t_size" name="t_size" /></td>
-                    <td>Size:</td>
+                    <!-- color -->
+                    <td><input type="checkbox" id="t_color" name="t_color" /></td>
+                    <td>Color:</td>
                     <td>
-                        <select id="size" name="size" size="1">
+                        <select id="color1" name="color1" size="1">
+                            <option value="" selected></option>
+                            <option value="val1">Value 1</option>
+                            <option value="val2">Value 2</option>
+                            <option value="val3">value 3</option>
+                        </select>
+                        <select id="color2" name="color2" size="1">
                             <option value="" selected></option>
                             <option value="val1">Value 1</option>
                             <option value="val2">Value 2</option>
@@ -119,17 +125,6 @@
                 </tr>
                 
                 <tr>
-                    <!-- surface -->
-                    <td><input type="checkbox" id="t_surface" name="t_surface" /></td>
-                    <td>Surface:</td>
-                    <td>
-                        <select id="surface" name="surface" size="1">
-                            <option value="" selected></option>
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </td>
-
                     <!-- hha_category -->
                     <td><input type="checkbox" id="t_hha_category" name="t_hha_category" /></td>
                     <td>Category:</td>
@@ -141,20 +136,19 @@
                             <option value="val3">value 3</option>
                         </select>
                     </td>
+
+                    <!-- surface -->
+                    <td><input type="checkbox" id="t_surface" name="t_surface" /></td>
+                    <td>Surface?</td>
+                    <td></td>
                 </tr>
 
                 <tr>
-                    <!-- color -->
-                    <td><input type="checkbox" id="t_color" name="t_color" /></td>
-                    <td>Color:</td>
+                    <!-- size -->
+                    <td><input type="checkbox" id="t_size" name="t_size" /></td>
+                    <td>Size:</td>
                     <td>
-                        <select id="color1" name="color1" size="1">
-                            <option value="" selected></option>
-                            <option value="val1">Value 1</option>
-                            <option value="val2">Value 2</option>
-                            <option value="val3">value 3</option>
-                        </select>
-                        <select id="color2" name="color2" size="1">
+                        <select id="size" name="size" size="1">
                             <option value="" selected></option>
                             <option value="val1">Value 1</option>
                             <option value="val2">Value 2</option>
@@ -164,14 +158,8 @@
 
                     <!-- sort_points -->
                     <td><input type="checkbox" id="t_sort_points" name="t_sort_points" /></td>
-                    <td>Points:</td>
-                    <td>
-                        <select id="sort_points" name="sort_points" size="1">
-                        <option value="" selected></option>
-                        <option value="lohi">Lo-to-Hi</option>
-                        <option value="hilo">Hi-to-Lo</option>
-                        </select>
-                    </td>
+                    <td>Sort by points?</td>
+                    <td></td>
                 </tr>
             </table>
 
