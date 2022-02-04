@@ -3,10 +3,10 @@
 see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 
 ## To Do
+* fix database such that columns always appear in the same order, otherwise `UNION` operator will fail due to mismatched type values
 * implementing sorting results by point values
-    * postgres already has a sort-by option for queries, so it would make sense to use that, but if `kind` isn't specified, then queries across many tables need to be performed, which would make the results not be sorted correctly
-    * using sort-by in that case would definitely improve the runtime of quicksort or bubble sort or whatever somewhat, but it's not ideal
-        * we'd also need to figure out how to do a sort on an array which contains hashes by a particular value within those hashes, which, would Suck
+    * use `UNION` operator
+    * postgres already has a sort-by option for queries
 * update item result css to make the all fields visible to the user
     * need to decide how to display items with multiple variations, and if items without multiple variations should appear the same way or not
     * see the mockup on goodnotes for more info
