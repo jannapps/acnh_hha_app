@@ -95,7 +95,6 @@ def construct_query (kind)
             end
         end
         query.chomp!(' AND ')
-        query.concat(';')
         return query
     end
 end
@@ -143,25 +142,23 @@ post '/search' do
 
         if params['t_kind'] || any_selected
             query = ""
+            query_results = []
             if params['t_kind']
                 query = construct_query params['kind']
-                query_results = connection.exec query
                 
-                query_results.each do |item|
-                    total_results.push(item)
-                end
             else
                 item_kinds.each do |kind|
-                    query = construct_query kind
-                    query_results = connection.exec query
-
-                    query_results.each do |item| 
-                        total_results.push(item)
-                    end
+                    query.concat(construct_query kind)
+                    query.concat(" UNION ")
                 end
+                
+                query.chomp!("UNION ")
             end
 
-            total_results.each do |item|
+            query.concat(";")
+            puts query
+            query_results = connection.exec query
+            query_results.each do |item|
                 data.push(item)
             end
         else
