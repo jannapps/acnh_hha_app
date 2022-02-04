@@ -50,10 +50,9 @@ end
 #  7. done
 def construct_query (kind)
     query = 'SELECT * FROM ' + kind + ' '
-    any_selected = params['t_name'] || params['t_hha_concept'] || params['t_hha_series'] || params['t_size'] || params['t_hha_set'] || params['t_surface'] || params['t_hha_category'] || params['t_color'] || params['t_sort_points']
+    any_selected = params['t_name'] || params['t_hha_concept'] || params['t_hha_series'] || params['t_size'] || params['t_hha_set'] || params['t_surface'] || params['t_hha_category'] || params['t_color']
 
     if !any_selected
-        query.concat(';')
         return query
     else
         query.concat('WHERE ')
@@ -138,9 +137,9 @@ post '/search' do
         end
 
         # 'any' is a misnomer, t_kind is treated differently because of its unique effect on search_string
-        any_selected = params['t_name'] || params['t_hha_concept'] || params['t_hha_series'] || params['t_size'] || params['t_hha_set'] || params['t_surface'] || params['t_hha_category'] || params['t_color'] || params['t_sort_points']
+        any_selected = params['t_name'] || params['t_hha_concept'] || params['t_hha_series'] || params['t_size'] || params['t_hha_set'] || params['t_surface'] || params['t_hha_category'] || params['t_color']
 
-        if params['t_kind'] || any_selected
+        if params['t_kind'] || params['t_sort_points'] || any_selected
             query = ""
             query_results = []
             if params['t_kind']
@@ -153,6 +152,10 @@ post '/search' do
                 end
                 
                 query.chomp!("UNION ")
+            end
+
+            if params['t_sort_points']
+                query.concat(" ORDER BY hha_base DESC ")
             end
 
             query.concat(";")
