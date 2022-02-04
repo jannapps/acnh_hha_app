@@ -3,7 +3,6 @@
 see: https://girljaro.systems:4444/index.php/category/development/acnh-hha-app/
 
 ## To Do
-* fix database such that columns always appear in the same order, otherwise `UNION` operator will fail due to mismatched type values
 * implementing sorting results by point values
     * use `UNION` operator
     * postgres already has a sort-by option for queries
