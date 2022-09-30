@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+    <meta charhha_set=utf-8>
+    <title>Profile - ACNH HHA Score Calculator</title>
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="topbar">
+        <div class="logo"><a href="/">HHA Score Calculator</a></div>
+
+        <ul class="nav-links">
+            <div class="menu">
+          
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/search">Search</a></li>
+                
+                <li class="myhouse-dropdown">
+                    <a href="/myhouse">My House</a>
+                    <ul class="dropdown">
+                        <li><a href="/myhouse/r1">Main Room</a></li>
+                        <li><a href="/myhouse/r2">Left Room</a></li>
+                        <li><a href="/myhouse/r4">Right Room</a></li>
+                        <li><a href="/myhouse/r3">Back Room</a></li>
+                        <li><a href="/myhouse/r5">Top Floor</a></li>
+                        <li><a href="/myhouse/r6">Basement</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/profile">Profile</a></li>
+
+            </div>
+        </ul>
+    </nav>
+    
+    <div class="info">
+        <h3>Profile</h3>
+        <p>Currently logged in as user: <b><i><%= session[:uid] %></i></b></p>
+        <p></p>
+        <br>
+        <ul>
+            <li><a href="/wishlist">My Wishlist</a></li>
+            <li><a href="/collection">My Collection</a></li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <h3>Settings</h3>
+        <p><a href="/logout"><button class="logout-button" type="button" name="logout" id="logout">Log Out</button></a></p>
+    </div>
+
+    <div class="bottombar">
+        <h3>&copy; jannapps</h3>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+    <meta charhha_set=utf-8>
+    <title>ACNH HHA Score Calculator</title>
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="topbar">
+        <div class="logo"><a href="/">HHA Score Calculator</a></div>
+
+        <ul class="nav-links">
+            <div class="menu">
+          
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/search">Search</a></li>
+                
+                <li class="myhouse-dropdown">
+                    <a href="/myhouse">My House</a>
+                    <ul class="dropdown">
+                        <li><a href="/myhouse/r1">Main Room</a></li>
+                        <li><a href="/myhouse/r2">Left Room</a></li>
+                        <li><a href="/myhouse/r4">Right Room</a></li>
+                        <li><a href="/myhouse/r3">Back Room</a></li>
+                        <li><a href="/myhouse/r5">Top Floor</a></li>
+                        <li><a href="/myhouse/r6">Basement</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/profile">Profile</a></li>
+
+            </div>
+        </ul>
+    </nav>
+    
+    <!-- search filter box -->
+    <div class="info">
+        <h3>Search Filters</h3>
+        <form class="search-filters" id="search-filters" method="POST" action="/search">
+            <table class="search-terms">
+                <tr>
+                    <!-- name -->
+                    <td><input type="checkbox" id="t_name" name="t_name" /></td>
+                    <td>Name:</td><td><input type="text" id="name" name="name" class="input-name" /></td>
+                    
+                    <!-- hha_concept -->
+                    <td><input type="checkbox" id="t_hha_concept" name="t_hha_concept" /></td>
+                    <td>Concept:</td>
+                    <td>
+                        <select id="hha_concept1" name="hha_concept1" size="1">
+                            <option value=""></option>
+                            <% @fields['concepts'].each do |concept| %>
+                            <option value="<%= concept %>"><%= concept %></option>
+                            <% end %>
+                        </select>
+                        <select id="hha_concept2" name="hha_concept2" size="1">
+                            <option value="" selected></option>
+                            <% @fields['concepts'].each do |concept| %>
+                            <option value="<%= concept %>"><%= concept %></option>
+                            <% end %>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <!-- kind -->
+                    <td><input type="checkbox" id="t_kind" name="t_kind" /></td>
+                    <td>Kind:</td>
+                    <td>
+                        <select id="kind" name="kind" size="1">
+                            <option value="" selected></option>
+                            <% @fields['kinds'].each do |kind| %>
+                            <option value="<%= kind %>"><%= kind %></option>
+                            <% end %>
+                        </select>
+                    </td>
+
+                    <!-- hha_series -->
+                    <td><input type="checkbox" id="t_hha_series" name="t_hha_series" /></td>
+                    <td>Series:</td>
+                    <td>
+                        <select id="hha_series" name="hha_series" size="1">
+                            <option value="" selected></option>
+                            <% @fields['series'].each do |series| %>
+                            <option value="<%= series %>"><%= series %></option>
+                            <% end %>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <!-- color -->
+                    <td><input type="checkbox" id="t_color" name="t_color" /></td>
+                    <td>Color:</td>
+                    <td>
+                        <select id="color1" name="color1" size="1">
+                            <option value="" selected></option>
+                            <% @fields['colors'].each do |color| %>
+                            <option value="<%= color %>"><%= color %></option>
+                            <% end %>
+                        </select>
+                        <select id="color2" name="color2" size="1">
+                            <option value="" selected></option>
+                            <% @fields['colors'].each do |color| %>
+                            <option value="<%= color %>"><%= color %></option>
+                            <% end %>
+                        </select>
+                    </td>
+
+                    <!-- hha_set -->
+                    <td><input type="checkbox" id="t_hha_set" name="t_hha_set" /></td>
+                    <td>Set:</td>
+                    <td>
+                        <select id="hha_set" name="hha_set" size="1">
+                            <option value="" selected></option>
+\                           <% @fields['sets'].each do |set| %>
+                            <option value="<%= set %>"><%= set %></option>
+                            <% end %>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <!-- hha_category -->
+                    <td><input type="checkbox" id="t_hha_category" name="t_hha_category" /></td>
+                    <td>Category:</td>
+                    <td>
+                        <select id="hha_category" name="hha_category" size="1">
+                            <option value="" selected></option>
+                            <% @fields['categories'].each do |category| %>
+                            <option value="<%= category %>"><%= category %></option>
+                            <% end %>
+                        </select>
+                    </td>
+
+                    <!-- surface -->
+                    <td><input type="checkbox" id="t_surface" name="t_surface" /></td>
+                    <td>Surface?</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <!-- size -->
+                    <td><input type="checkbox" id="t_size" name="t_size" /></td>
+                    <td>Size:</td>
+                    <td>
+                        <select id="size" name="size" size="1">
+                            <option value="" selected></option>
+                            <% @fields['sizes'].each do |size| %>
+                            <option value="<%= size %>"><%= size %></option>
+                            <% end %>
+                        </select>
+                    </td>
+
+                    <!-- sort_points -->
+                    <td><input type="checkbox" id="t_sort_points" name="t_sort_points" /></td>
+                    <td>Sort by points?</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <!-- form submission button -->
+            <button class="search-button" type="submit" form="search-filters" name="do-search" id="do-search">Search!</button>
+        </form>
+    </div>
+
+    <!-- display search results -->
+    <%= yield :item %>
+
+    <div class="bottombar">
+        <h3>&copy; jannapps</h3>
+    </div>
+
+</body>
+</html>

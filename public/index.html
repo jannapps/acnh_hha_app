@@ -22,16 +22,16 @@
                 <li class="myhouse-dropdown">
                     <a href="/myhouse">My House</a>
                     <ul class="dropdown">
-                        <li><a href="/myhouse/mainroom">Main Room</a></li>
-                        <li><a href="/myhouse/leftroom">Left Room</a></li>
-                        <li><a href="/myhouse/rightroom">Right Room</a></li>
-                        <li><a href="/myhouse/backroom">Back Room</a></li>
-                        <li><a href="/myhouse/topfloor">Top Floor</a></li>
-                        <li><a href="/myhouse/basement">Basement</a></li>
+                        <li><a href="/myhouse/r1">Main Room</a></li>
+                        <li><a href="/myhouse/r2">Left Room</a></li>
+                        <li><a href="/myhouse/r4">Right Room</a></li>
+                        <li><a href="/myhouse/r3">Back Room</a></li>
+                        <li><a href="/myhouse/r5">Top Floor</a></li>
+                        <li><a href="/myhouse/r6">Basement</a></li>
                     </ul>
                 </li>
 
-                <li><a href="/profile">[ICO]</a></li>
+                <li><a href="/profile">Profile</a></li>
 
             </div>
         </ul>
@@ -39,48 +39,61 @@
 
     <div class="info">
         <h3>Welcome!</h3>
-        <p>Please read our terms of service:</p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas iaculis vitae dolor vitae rutrum. Integer dictum viverra quam id blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nunc libero, in aliquam sem iaculis facilisis. Sed ac nunc sit amet ante tristique vestibulum vehicula nec nibh. Vivamus quis dui enim. Vivamus turpis sapien, bibendum at sapien volutpat, sagittis rhoncus ante. Vestibulum ut mauris et velit convallis auctor. Aliquam a ligula id sem pellentesque pharetra eget nec mauris. In ac tellus commodo, malesuada mauris eu, facilisis sem.</p>
-        <p>Donec ac sollicitudin enim. Morbi ut interdum magna. Nullam posuere urna magna, auctor imperdiet nulla rhoncus malesuada. Phasellus libero elit, varius eget arcu id, scelerisque feugiat est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales erat sed lacus fermentum suscipit eu vel mi. Duis nibh arcu, vulputate vel arcu elementum, gravida fermentum ipsum. Suspendisse feugiat dui quis imperdiet pellentesque. Ut eros dolor, dapibus ac cursus sed, molestie ut nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut a sapien pellentesque, dignissim neque in, commodo mauris. Mauris velit purus, sagittis vel tincidunt non, placerat in ipsum.</p>
+        <p><b>Please read our terms of service:</b></p>
+        <p>Right now, this site is still in-development, so the terms of service haven't been ironed out quite yet. Basically, just don't be a jerk (i.e. don't attempt to break the site).</p>
+        <br>
+        <p>Some cool things you can do:</p>
+        <ul class="rule-list">
+            <li>Create new user!</li>
+            <li>Logout, login, close the browser and reload the page without losing your session!</li>
+            <li>Do intricate searches to find any furniture you could want!</li>
+            <li>Add furniture to your house, or to a wishlist!</li>
+            <li>Furniture added to your house is automatically stored in your collection page!</li>
+            <li>The score for your house is calculated as items are added to rooms! View <a href=/myhouse'>My House</a> to check your total!</li>
+            <li>Ruby generates the markup for search filters so I didn't have to type it all!</li>
+        </ul>
+        <br>
+        <p>Some issues to keep in mind:</p>
+        <ul class="rule-list">
+            <li>You can't delete your account yet. Once you're here, you're here forever.</li>
+            <li>You can't remove items from lists.</li>
+            <li>A search that is too general will cause the page to freeze as a result of too many results. Pagination is needed in the future.</li>
+            <li>There are certain search filter options that will cause a database failure due to unescaped characters, ex. "child's room"</li>
+            <li>SQL Injection and session spoofing are absolutely possible. Just don't do it please.</li>
+            <li>Passwords are stored in plain-text, as this is just a demonstration. A real production site would encrypt the passwords.</li>
+            <li>Some aspects of the score calculation algorithm are unimplemented. These would require dramatically increasing the complexity of the application and its database, so they're left unimplemented for demonstration purposes.</li>
+            <li>The interface is... a work in progress. I wrote all of the HTML and CSS myself by hand. Please be kind.</li>
+        </ul>
     </div>
 
     <div class="info">
         <h3>HHA Score Algorithm</h3>
+        <p>Implemented:</p>
         <ul class="rule-list">
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Maecenas iaculis vitae dolor vitae rutrum.</li>
-            <li>Integer dictum viverra quam id blandit.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Donec tincidunt nunc libero, in aliquam sem iaculis facilisis.</li>
-            <li>Sed ac nunc sit amet ante tristique vestibulum vehicula nec nibh.</li>
-            <li>Vivamus quis dui enim.</li>
-            <li>Vivamus turpis sapien, bibendum at sapien volutpat, sagittis rhoncus ante.</li>
-            <li>Vestibulum ut mauris et velit convallis auctor.</li>
-            <li>Aliquam a ligula id sem pellentesque pharetra eget nec mauris.</li>
-            <li>In ac tellus commodo, malesuada mauris eu, facilisis sem.</li>
-            <li>Donec ac sollicitudin enim. Morbi ut interdum magna.</li>
-            <li>Nullam posuere urna magna, auctor imperdiet nulla rhoncus malesuada.</li>
-            <li>Phasellus libero elit, varius eget arcu id, scelerisque feugiat est.</li>
+            <li>6 furniture items in a room: 1,000 points</li>
+            <li>10 furniture items in a room: 1,000 points</li>
+            <li>15 furniture items in a room: 1,000 points</li>
+            <li>20 furniture items in a room: 1,000 points</li>
+            <li>Wall-mounted furniture: 400 points x number of items (limit 3)</li>
+            <li>4 or more furniture items from same series: 1,000 points x number of items</li>
+            <li>3 or more furniture items from same category: 500 points x number of items</li>
+            <li>70%+ of furniture in a room with same color: 200 points x number of items</li>
+            <li>90%+ of furniture in a room with same color: 600 points x number of items</li>
+        </ul>
+        <br>
+        <p>Unimplemented:</p>
+        <ul class="rule-list">
+            <li>Lucky items: 777 points x number of items</li>
+            <li>Complete furniture set: 800 points x number of items</li>
+            <li>Red, green, or yellow feng shui: 500 points</li>
         </ul>
     </div>
 
     <div class="info">
         <h3>Sources</h3>
         <ul class="rule-list">
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Maecenas iaculis vitae dolor vitae rutrum.</li>
-            <li>Integer dictum viverra quam id blandit.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            <li>Donec tincidunt nunc libero, in aliquam sem iaculis facilisis.</li>
-            <li>Sed ac nunc sit amet ante tristique vestibulum vehicula nec nibh.</li>
-            <li>Vivamus quis dui enim.</li>
-            <li>Vivamus turpis sapien, bibendum at sapien volutpat, sagittis rhoncus ante.</li>
-            <li>Vestibulum ut mauris et velit convallis auctor.</li>
-            <li>Aliquam a ligula id sem pellentesque pharetra eget nec mauris.</li>
-            <li>In ac tellus commodo, malesuada mauris eu, facilisis sem.</li>
-            <li>Donec ac sollicitudin enim. Morbi ut interdum magna.</li>
-            <li>Nullam posuere urna magna, auctor imperdiet nulla rhoncus malesuada.</li>
-            <li>Phasellus libero elit, varius eget arcu id, scelerisque feugiat est.</li>
+            <li><a href="https://nookipedia.com/wiki/Happy_Home_Academy#In_New_Horizons">The Animal Crossing Wiki</a></li>
+            <li>Countless Ruby on Rails and Sinatra guides</li>
         </ul>
     </div>
 

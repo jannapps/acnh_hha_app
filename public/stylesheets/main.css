@@ -127,7 +127,17 @@ div.item {
     padding:            15px;
     line-height:        15px;
     width:              75%;
-    height:             40px;
+    height:             auto;
+}
+
+.icon {
+    width:              50px;
+    height:             50px;
+}
+
+.item-table {
+    width:              100%;
+    margin:             left;
 }
 
 /* END SEARCH RESULTS */
@@ -152,9 +162,10 @@ div.info h3, div.info h4, div.info h5, div.info h6 {
     margin-left:        15px;
 }
 
-div.info p, div.info ul {
+div.info p, div.info ul, div.info table{
     width:              90%;
     margin:             auto;
+    line-height:        1.2;
 }
 
 /* END BASIC TEXT SECTIONS */
