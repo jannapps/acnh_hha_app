@@ -1,0 +1,4 @@
+development:
+  adapter:    postgresql
+  database:   acnh_hha_app
+  username:   janna

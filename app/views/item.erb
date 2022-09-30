@@ -1,0 +1,108 @@
+<% if data == nil %>
+    <div class="info">
+        <h3>No items to show!</h3>
+    </div>
+<% elsif data == "no_selection" %>
+    <div class="info">
+        <h3>Nothing was selected! Try some search terms.</h3>
+    </div>
+<% elsif data == "error" %>
+    <div class="info">
+        <h3>Oops!</h3>
+        <p>Our database is down. Please check again later! &hearts;</p>
+    </div>
+<% elsif data == "initial_state" %>
+<% else %>
+    <% if data.length() == 0 %>
+        <div class="info">
+            <h3>Nothing to display!</h3>
+        </div>
+    <% else %>
+
+        <script type="text/javascript">
+            function add_to_list(filename) {
+            <% if session[:uid] == nil %>
+                alert("You're not signed in!");
+            <% else %>
+                room = document.getElementById('add-list-' + filename).value;
+                if (room == '') {
+                    alert("No list was selected!");
+                } else {
+                    filename_enc = encodeURIComponent(filename);
+                    room_enc = encodeURIComponent(room);
+
+                    req_string = "filename=" + filename_enc + "&room=" + room_enc;
+
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.open("POST", "/lists");
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+                    xhttp.send(req_string);
+
+                    alert('Added item to list: ' + room);
+                }
+            <% end %>
+            }
+        </script>
+
+        <% data.each do |item| %>
+            <div class="item">
+                <table class="item-table">
+                    <tr>
+                        <td rowspan="2" style="width:5%;"><img class="icon" src=<%= item['image'] %>></td>
+                        <td colspan="2" style="width:60%;"><%= item['name'] %></td>
+                        <td style="width:20%;"><%= item['variation'] %></td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;"><%= item['kind'] %></td>
+                        <td><%= item['size'] %></td>
+                        <% if item['surface'] == "No" %>
+                        <td>No surface</td>
+                        <% else %>
+                        <td>Surface</td>
+                        <% end %>
+                    </tr>
+                </table>
+                <table class="item-table">
+                    <tr>
+                        <td style="width:12%;">Points:</td>
+                        <td style="width:20%;"><%= item['hha_base'] %></td>
+                        <td style="width:12%;">Set:</td>
+                        <td style="width:20%;"><%= item['hha_set'] %></td>
+                        <td style="width:12%;">Category:</td>
+                        <td style="width:20%;"><%= item['hha_category'] %></td>
+                    </tr>
+                    <tr>
+                        <td>Color 1:</td>
+                        <td><%= item['color1'] %></td>
+                        <td>Concept 1:</td>
+                        <td><%= item['hha_concept1'] %></td>
+                        <td>Series:</td>
+                        <td><%= item['hha_series'] %></td>
+                    </tr>
+                    <tr>
+                        <td>Color 2:</td>
+                        <td><%= item['color2'] %></td>
+                        <td>Concept 2:</td>
+                        <td><%= item['hha_concept2'] %></td>
+                        <td>
+                            <form class="add-to-list">
+                                <select id="add-list-<%= item['filename'] %>" class="add-list" size="1">
+                                    <option value=""></option>
+                                    <option value="r1">Main Room</option>
+                                    <option value="r2">West Room</option>
+                                    <option value="r3">Back Room</option>
+                                    <option value="r4">East Room</option>
+                                    <option value="r5">Top Floor</option>
+                                    <option value="r6">Basement</option>
+                                    <option value="wishlists">Wishlist</option>
+                                    <option value="collections">Collection</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td><button class="add-list-button" onClick="add_to_list('<%= item['filename'] %>')">Add</button></td>
+                    </tr>
+                </table>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>

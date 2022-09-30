@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+    <meta charhha_set=utf-8>
+    <title>Register - ACNH HHA Score Calculator</title>
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="topbar">
+        <div class="logo"><a href="/">HHA Score Calculator</a></div>
+
+        <ul class="nav-links">
+            <div class="menu">
+          
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/search">Search</a></li>
+                
+                <li class="myhouse-dropdown">
+                    <a href="/myhouse">My House</a>
+                    <ul class="dropdown">
+                        <li><a href="/myhouse/r1">Main Room</a></li>
+                        <li><a href="/myhouse/r2">Left Room</a></li>
+                        <li><a href="/myhouse/r4">Right Room</a></li>
+                        <li><a href="/myhouse/r3">Back Room</a></li>
+                        <li><a href="/myhouse/r5">Top Floor</a></li>
+                        <li><a href="/myhouse/r6">Basement</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/profile">Profile</a></li>
+
+            </div>
+        </ul>
+    </nav>
+    
+    <div class="info">
+        <h3>Register</h3>
+        <table>
+        
+        <form class="register" id="register" method="POST" action="/register">
+        <table>
+            <tr>
+                <td>Username: </td><td><input type="text" id="username" name="username" /></td>
+            </tr>
+            <tr>
+                <td>Password: </td><td><input type="password" id="password" name="password" /></td>
+            </tr>
+            <tr>
+                <td><button class="register-button" type="submit" form="register" name="register" id="register">Submit</button></td>
+            </tr>
+        </table>
+        </form>
+    </div>
+
+    <div class="bottombar">
+        <h3>&copy; jannapps</h3>
+    </div>
+
+</body>
+</html>

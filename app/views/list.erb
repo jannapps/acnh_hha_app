@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
+    <meta charhha_set=utf-8>
+    <title><%= params[:room_long] %> - ACNH HHA Score Calculator</title>
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="topbar">
+        <div class="logo"><a href="/">HHA Score Calculator</a></div>
+
+        <ul class="nav-links">
+            <div class="menu">
+          
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/search">Search</a></li>
+                
+                <li class="myhouse-dropdown">
+                    <a href="/myhouse">My House</a>
+                    <ul class="dropdown">
+                        <li><a href="/myhouse/r1">Main Room</a></li>
+                        <li><a href="/myhouse/r2">Left Room</a></li>
+                        <li><a href="/myhouse/r4">Right Room</a></li>
+                        <li><a href="/myhouse/r3">Back Room</a></li>
+                        <li><a href="/myhouse/r5">Top Floor</a></li>
+                        <li><a href="/myhouse/r6">Basement</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/profile">Profile</a></li>
+
+            </div>
+        </ul>
+    </nav>
+    
+
+    <div class="info">
+        <% if params[:room_long] == 'Wishlist' %>
+            <h3>Wishlist</h3>
+            <p>Put stuff you'd like to collect here!</p>
+        <% elsif params[:room_long] == 'Collection' %>
+            <h3>Collection</h3>
+            <p>Stuff you've added to your rooms will automatically be added here!</p>
+        <% else params[:room_long] %>
+            <h3>House Page: <%= params[:room_long] %></h3>
+            <p>This room's score: <%= params[:room_points] %></p>
+        <% end %>
+    </div>
+
+    <!-- display search results -->
+    <%= yield :item %>
+
+    <div class="bottombar">
+        <h3>&copy; jannapps</h3>
+    </div>
+
+</body>
+</html>
